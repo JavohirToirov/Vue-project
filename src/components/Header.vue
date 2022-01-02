@@ -1,30 +1,30 @@
 <template>
-       <header>
-           <h1>{{ title }}</h1>
-           <Button text="Add Task" color="green" />
-       </header>
+  <header>
+    <h1>{{ title }}</h1>
+    <Button @toggle-add-task="$emit('toggle-add-task')" :text="showAddTask ? 'Закрыть' : 'Добавить' " :color="showAddTask ? 'crimson' : 'green' " />
+  </header>
 </template>
-
 
 <script>
 import Button from './Button'
-export default {
+
+  export default {
     name: 'Header',
     props: {
-        title: String
+      title: String,
+      showAddTask: Boolean
     },
-    
     components: {
-       Button 
+      Button
     }
-}
+  }
 </script>
 
 <style>
-  header{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-  }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 </style>
